@@ -1,16 +1,5 @@
 {
   "name": "nvi-proxy",
   "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "echo 'skip build'",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "14.0.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "@vercel/node": "^3.0.0"
-  }
+  "private": true
 }
