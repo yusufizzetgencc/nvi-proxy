@@ -1,25 +1,5 @@
-// api/nvi-verify.ts
-
-// Vercel Request & Response tiplerini manuel tanımlıyoruz (npm install yapmaya gerek kalmaz)
-interface VercelRequest {
-  method?: string;
-  body: {
-    tcNo?: string;
-    firstName?: string;
-    lastName?: string;
-    birthYear?: number | string;
-  };
-}
-
-interface VercelResponse {
-  status: (code: number) => VercelResponse;
-  json: (data: any) => VercelResponse;
-  end: () => void;
-  setHeader: (name: string, value: string | boolean) => void;
-}
-
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // CORS ayarları
+export default async function handler(req, res) {
+  // CORS Başlıkları
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -78,7 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     );
 
     return res.status(200).json({ success: isVerified });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Proxy error:", error);
     return res
       .status(502)
