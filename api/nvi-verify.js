@@ -57,7 +57,10 @@ export default async function handler(req, res) {
       "<TCKimlikNoDogrulaResult>true</TCKimlikNoDogrulaResult>",
     );
 
-    return res.status(200).json({ success: isVerified });
+    return res.status(200).json({
+      success: isVerified,
+      rawResponse: text, // NVİ'den gelen ham yanıtı ekliyoruz
+    });
   } catch (error) {
     console.error("Proxy error:", error);
     return res
