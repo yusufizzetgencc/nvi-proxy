@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Bu satır Vercel'in bu API'yi hızlıca (Edge) çalıştırmasını sağlar
+export const runtime = "edge";
+
 export async function POST(req: NextRequest) {
   try {
     const { tcNo, firstName, lastName, birthYear } = await req.json();
